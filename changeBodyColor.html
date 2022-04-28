@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Changing Colors</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale:1.0">
+        <style>
+            * {
+                box-sizing: content-box;
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                font-family: 'Poppins', sans-serif;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            button{
+                font-size: 18px;
+                background: black;
+                padding: 0px 3px;
+                border: 3px solid black;
+                border-radius: 3px;
+                color: white;
+                font-weight: bold;
+                letter-spacing: 1px;
+                font-family: 'Poppins', sans-serif;
+            }
+
+            button:focus {
+                outline: none;
+            }
+
+
+            .container{
+                width: 30%;
+                padding: 5px;
+                text-align: center;
+            }
+
+            .color-info{
+                font-style: italic;
+                color: white;
+                background-color: rgba(0, 0, 0, 0.7);
+                border-radius: 5px;
+                margin-bottom: 5px;
+            }
+
+
+            @media only screen and (max-width: 900px) {
+                .container {
+                    width: 100%;
+            }
+}
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="color-info">
+                <h2>Color Code : <span id="color-code">white</span></h2></span>
+            </div>
+            <div class="btn">
+                <button>Click Me</button>
+            </div>
+        </div>
+        <script>
+            const   hexArry         =   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
+            const getSpan   =   document.querySelector("#color-code");
+            document.querySelector("button").addEventListener("click", changeColor)
+            function changeColor(){
+                var rColor      =   "#"
+                for(let i = 0; i < 6; i++){
+                    rColor   +=  String(hexArry[Math.floor(Math.random()*(hexArry.length))]);
+                }
+                document.body.style.backgroundColor = rColor;
+                getSpan.innerHTML   =   rColor;
+            }
+        </script>
+    </body>
+</html>
